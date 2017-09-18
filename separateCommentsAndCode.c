@@ -7,6 +7,10 @@
  * The original c file wont change
  */
 void separateComments ( char * strPointer ) {
+    if (strPointer == NULL) {
+        printf("Error, Invalid Pointer!\n");
+        return;
+    }
 // Opening both files.  w -> Write   a-> Append
     FILE * codeFile, * commentFile;
     codeFile = fopen("codeFile.c","w");
