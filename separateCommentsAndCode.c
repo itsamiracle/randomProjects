@@ -7,6 +7,7 @@
  * The original c file wont change
  */
 void separateComments ( char * strPointer ) {
+
     if (strPointer == NULL) {
         printf("Error, Invalid Pointer!\n");
         return;
@@ -53,16 +54,22 @@ void separateComments ( char * strPointer ) {
 
 int main(int argc, char * argv []) {
 
+    if(argc == 1){
+        printf("Please run the program with the name of your file!\n" );
+        return 0;
+    }
     char c;
     char fileContents[1000];
+    // int * abc = NULL; complier gives Segmentation fault (core dumped) error ?
     int i;
 
 // Opening the file. The name of the file was passed as a parameter
     FILE * inputFile = NULL;
     inputFile = fopen(argv[1],"r");
-    if (inputFile == NULL)
+    if (inputFile == NULL){
         printf("ERROR WHILE OPENING THE FILE\n" );
-
+        return 0;
+    }
 /* getc(FILE * stream) - fgetc(FILE * stream) : Returns the character currently
  * pointed by the INTERNAL FILE POSITION INDICATOR of the specified stream.
  * The INTERNAL FILE POSITION INDICATOR is then advanced to the next character.
@@ -71,8 +78,8 @@ int main(int argc, char * argv []) {
  * with this array we will call the separateComments funtion
  */
     while((c = fgetc(inputFile)) != EOF ){
-        fileContents[i] = c;
-        i++;
+       fileContents[i] = c;
+       i++;
     }
     fclose(inputFile);
     separateComments(fileContents);
