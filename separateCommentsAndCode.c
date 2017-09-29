@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
+// char *strchr(char *str, int ch) -> Returns a pointer to the first occurrence of character in the C string str.
+// char *strrchr(char *str, int ch) -> searches the string in reverse order
+
 /* This function takes a char pointer (char array) as a parameter
  * It will separate the comments , writing all the comments
  * into 'commentFile.txt' and the rest into 'codeFile.c'
